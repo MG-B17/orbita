@@ -1,50 +1,54 @@
 import 'package:flutter/material.dart';
 import '../../../../core/utils/color/app_color.dart';
-import '../../../../core/utils/strings/app_strings.dart';
 
 
-class FileUploadLoading extends StatelessWidget {
-  const FileUploadLoading({super.key});
+class Upload extends StatelessWidget {
+  const Upload({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              SizedBox(
-                width: 65,
-                height: 65,
-                child: CircularProgressIndicator(
-                  strokeWidth: 3.5,
-                  valueColor: AlwaysStoppedAnimation<Color>(AppColor.mainColor),
-                ),
-              ),
-              Icon(
-                Icons.upload_file_rounded,
-                color: AppColor.textColor.withOpacity(0.8),
-                size: 32,
-              ),
-            ],
-          ),
-
-          SizedBox(height: 25),
-
-          Text(
-              AppStrings.uploadingFileStatement,
-              textAlign: TextAlign.center,
-              style:TextStyle(
+    return Scaffold(
+      backgroundColor: AppColor.fillColor,
+      appBar: AppBar(
+        backgroundColor: AppColor.fillColor,
+        title: Text(
+          "Explant Finder ",
+        style: TextStyle(
+          color: AppColor.textColor,
+          fontSize: 18,
+        fontWeight: FontWeight.bold
+        ),
+        ),
+        centerTitle: true,
+      ),
+      body: Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Icon(
+              Icons.upload_file,
+              color: AppColor.secondColor,
+              size: 100,
+            ),
+            Text(
+              "Browser to Upload ",
+              style: TextStyle(
                   color: AppColor.textColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  height: 1.5
-              )
-          )
-        ],
+                  fontSize:15,
+                  fontWeight: FontWeight.w500
+              ),
+            ),
+            Text(
+              "only Scv Files ",
+              style: TextStyle(
+                  color: AppColor.greyColor,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
